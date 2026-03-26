@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+
+.form-section{
+    @apply lg:min-w-7xl  mb-10 mx-auto flex justify-center
+}
+
+
+.form{
+    @apply p-6  flex flex-col gap-5 
+}
+
+.form__input{
+    @apply border-gray-200 border-[1px]  rounded pl-[5px]  h-12
+}
+
+.form__group{
+    @apply flex flex-col gap-1
+}
+
+.collases{
+    @apply flex gap-2 w-full flex-wrap 
+}
+.form__label{
+    @apply text-[13px] font-bold text-gray-700;
+}
+
+.form-section__container{
+    @apply border-gray-200 border-[1px] py-6  px-3 rounded h-fit shadow-md ;
+}
+.form__button{
+   @apply px-6 py-4  bg-[rgb(5,152,98)] transition  text-white text-sm  font-bold rounded ;
+}
+.btn{
+   @apply transition ;
+}
+.btn:hover{
+    @apply  text-[#059862];
+}
+.form__button:hover
+{
+     @apply border-[1px] bg-white text-[rgb(5,152,98,1)] ;
+}
+.table__wrapper{
+    @apply  min-w-7xl flex ;
+}
+.table{
+    @apply  flex-1 ;
+}
+
+.table .table__head{
+    @apply text-center;
+}
+
+.table th,td{
+    @apply border-gray-200 border-[1px] text-center py-3 px-2 ;
+}
+tr:nth-child(even){
+     @apply bg-[rgb(5,152,98,0.1)] 
+}
+.show{
+    @apply flex;
+}
