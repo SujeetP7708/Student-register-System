@@ -45,7 +45,6 @@ function displayData(){
           const row=document.createElement('tr');
           row.classList.add(`row${index}`);
           row.innerHTML=`
-         
           <td>${student.name}</td>
           <td>${student.id}</td>
           <td>${student.age}</td>
@@ -74,7 +73,7 @@ function addStudentData(){
           email:document.getElementById('email').value,
           contact:document.getElementById('contact').value,
        }
-        // ✅ Validation
+        //  Validation
   const nameRegex = /^[A-Za-z ]+$/;
   const idRegex = /^[0-9]+$/;
   const contactRegex = /^[0-9]{10,}$/;
@@ -99,7 +98,7 @@ function addStudentData(){
     return;
   }
 
-  // ✅ Duplicate ID check
+  //  Duplicate ID check
   if (studentArr.some(s => s.id === id)) {
     alert("Student ID already exists!");
     return;
