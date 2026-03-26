@@ -13,9 +13,12 @@ function saveData(){
 const menuBtn = document.getElementById("menuBtn");
 const mobileMenu = document.getElementById("mobileMenu");
 
+//toggle mobile
 menuBtn.addEventListener("click", () => {
   mobileMenu.classList.toggle("hidden");
 });
+
+//enable scroll after the 5 reows added in the table
 
 function applyScroll() {
   const body = document.getElementById("studentTableBody");
@@ -29,11 +32,12 @@ function applyScroll() {
     scrollArea.style.overflowY = "visible";
   }
 }
-
+//display student data afer re-loading
 window.onload = function () {
   displayData();
 };
 
+//display data after form submitted in the table
 function displayData(){
   
     display.innerHTML='';
@@ -41,7 +45,7 @@ function displayData(){
           const row=document.createElement('tr');
           row.classList.add(`row${index}`);
           row.innerHTML=`
-          <td>${index+1}</td>
+         
           <td>${student.name}</td>
           <td>${student.id}</td>
           <td>${student.age}</td>
@@ -54,7 +58,7 @@ function displayData(){
           display.appendChild(row);
     });
 }
-
+//add student data
 function addStudentData(){
         console.log("add student details");
          const name = document.getElementById("name").value.trim();
@@ -108,7 +112,7 @@ function addStudentData(){
 
 }
 
-
+//deleting rows in a table
 function deleterow(index){
     const deletedrow=document.querySelector(`.row${index}`);
     studentArr.splice(index,1);
@@ -120,7 +124,10 @@ window.addEventListener("resize", () => {
     mobileMenu.classList.add("hidden");
   }
 });
+
+//edit row and record in the table
 function editrow(index){
+  //load the existing values in the pop up form
     document.getElementById('editname').value=studentArr[index].name;
     document.getElementById('editid').value=studentArr[index].id;
     document.getElementById('editcontact').value=studentArr[index].contact;
@@ -128,7 +135,7 @@ function editrow(index){
     document.getElementById('editage').value=studentArr[index].age;
     document.getElementById('editpop').classList.add('show');
    
-    
+    //update the changes
     document.getElementById('editsubmit').addEventListener('click', (e)=>{
       e.preventDefault();
         studentArr[index].name=document.getElementById('editname').value;
@@ -137,7 +144,8 @@ function editrow(index){
         studentArr[index].email=document.getElementById('editemail').value;
         studentArr[index].age=document.getElementById('editage').value;
           const rows=document.querySelector(`.row${index}`);
-        rows.innerHTML=`<td >${index+1}</td>
+          //insert in the existing row
+        rows.innerHTML=`
                       <td >${studentArr[index].name}</td>
                       <td >${studentArr[index].id}</td>
                       <td >${studentArr[index].age}</td>
@@ -147,8 +155,9 @@ function editrow(index){
             <i class="ri-delete-bin-6-fill" class="delete_btn btn"   onclick="deleterow(${index})" ></i>
             <i class="ri-edit-fill"  class="edit-btn btn" onclick="editrow(${index})"></i>       
           </td>`
-         
+         //save cchanges
          saveData();
+         //close the pop up after changes submitted
         closepopup();
       
 
